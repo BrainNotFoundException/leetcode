@@ -34,6 +34,8 @@ class Solution(object):
             
             while True:
                 
+                #different step while moving across letters in string up / down
+                
                 if up:
                     step = i*2
                 else:
