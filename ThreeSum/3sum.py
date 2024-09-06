@@ -23,6 +23,8 @@
 
 
 ## INEFFICIENT
+## 2 Test Cases Time Limit Exceeded
+
 
 '''
 class Solution(object):
@@ -32,42 +34,50 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
-        hashmap = {}
+        nums.sort()
         ret_list = []
-        target = 0
 
         for i in range(len(nums)):
 
-            if not nums[i] in hashmap:
+            target = 0-nums[i]
 
-                hashmap[nums[i]] = [i]
-            else:
+            l = 0
+            h = len(nums)-1
 
-                hashmap[nums[i]] = hashmap[nums[i]] + [i]
+            while l<h:
 
-        for i in range(len(nums)):
+                if i == l:
+                    
+                    l+=1
+                
+                elif i == h:
 
-            c_tar = target - nums[i]
+                    h-=1
 
-            for j in range(len(nums)):
+                if l == h:
 
-                if j==i:
-                    continue
+                    break
 
-                c = c_tar - nums[j]
+                s = nums[l] + nums[h]
 
-                if c in hashmap:
+                if s > target:
 
-                    for k in hashmap[c]:
+                    h-=1
+                
+                elif s<target:
 
-                        if k!=i and k!=j:
+                    l+=1
+                
+                else:
 
-                            arr = [nums[i], nums[j], c]
-                            arr.sort()
+                    arr = [nums[i], nums[l], nums[h]]
+                    arr.sort()
 
-                            if not arr in ret_list:
+                    if not arr in ret_list:
 
-                                ret_list.append(arr)
-                        
+                        ret_list.append(arr)
+                    
+                    l+=1
+
         return ret_list
 '''
