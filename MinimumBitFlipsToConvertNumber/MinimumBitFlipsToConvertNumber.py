@@ -1,3 +1,45 @@
+## NOT THAT BAD
+
+class Solution(object):
+    def minBitFlips(self, start, goal):
+        
+        """
+        :type start: int
+        :type goal: int
+        :rtype: int
+        """
+
+        xor = str(bin(start^goal))
+
+        flip = 0
+        
+        for i in xor:
+
+            if i == '1':
+
+                flip +=1
+
+        return flip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## INEFFICIENT
+
+
 class Solution(object):
     def minBitFlips(self, start, goal):
         
