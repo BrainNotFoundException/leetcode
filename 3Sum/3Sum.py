@@ -1,4 +1,59 @@
+## HASH MAP APPROACH
+
+class Solution:
+    
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
+        
+        len_nums = len(nums)
+        hash_map = {}
+        nums.sort()
+        lst=[]
+
+        for i in range(len_nums):
+
+            if not nums[i] in hash_map:
+
+                hash_map[nums[i]] = [i]
+        
+            else:
+
+                hash_map[nums[i]].append(i)
+    
+        p_i = None
+        p_j = None
+
+        for i in range(len_nums-2):
+
+            if nums[i] == p_i:
+
+                continue
+
+            p_i = nums[i] 
+
+            for j in range(i+1, len_nums-1):
+
+                if nums[j] == p_j:
+
+                    continue
+                
+                p_j = nums[j]
+
+                target = - nums[i] - nums[j]
+
+                if target in hash_map:
+
+                    for k in hash_map[target]:
+
+                        if k>j:
+
+                            lst.append([nums[i], nums[j], target])
+                            break
+        
+        return lst
+
+
 # NOT SATISFIED
+# TWO POINTER APPROACH
 
 class Solution:
     
