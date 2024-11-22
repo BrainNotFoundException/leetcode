@@ -2,6 +2,30 @@
 ##    THIS PROBLEM HAS BEEN SOLVED ASSUMING X CANNOT STORE A 64 BIT INTEGER
 ##    *********************************************************************
 
+#More Efficient ↓
+class Solution:
+    def reverse(self, x: int) -> int:
+        
+        if x>(2**31)-1 or x<-2**31:
+            return 0
+
+        s=1
+        if x<0:
+            s = -1
+        
+        x=abs(x)
+        out = 0
+        while x>0:
+
+            out = out*10 + x%10
+            x = x//10
+
+            if out>2**31-1:
+                return 0
+        
+        return s*out
+    
+'''
 class Solution(object):
 
     def reverse(self, x):
@@ -32,3 +56,4 @@ class Solution(object):
                 return rx
         else:
             return 0
+'''
