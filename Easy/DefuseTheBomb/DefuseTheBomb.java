@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Solution {
+class DefuseTheBomb {
     public int[] decrypt(int[] code, int k) {
 
         if (k == 0){

@@ -1,4 +1,4 @@
-class Solution {
+class FindIfArrayCanBeSorted {
     public boolean canSortArray(int[] nums) {
 
         int cur_sma = nums[0];

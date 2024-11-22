@@ -1,4 +1,4 @@
-class Solution {
+class StringCompressionIII {
     public String compressedString(String word) {
         
         String comp = "";
