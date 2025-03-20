@@ -1,0 +1,30 @@
+class MinimumOperationsToMakeBinaryArrayElementsEqualToOneI {
+
+    public int flip(int x){
+        return x==0?1:0;
+    }
+
+    public int minOperations(int[] nums) {
+        
+        int n = nums.length - 2;
+        int i = 0;
+        int c = 0;
+
+        while (i<n){
+            if(nums[i]==0){
+                nums[i] = flip(nums[i]);
+                nums[i+1] = flip(nums[i+1]);
+                nums[i+2] = flip(nums[i+2]);
+                c++;
+            }
+            i++;
+        }
+
+        if(nums[n]==0 || nums[n+1]==0){
+            return -1;
+        }
+
+        return c;
+
+    }
+}
